@@ -1,4 +1,3 @@
-<img width="1600" height="767" alt="WhatsApp Image 2026-06-03 at 8 00 32 PM" src="https://github.com/user-attachments/assets/5445af99-3144-4666-8126-a53135aac60e" /># 🔐 METACIPHER
 
 ### Advanced Caesar Cipher Cryptography System
 
