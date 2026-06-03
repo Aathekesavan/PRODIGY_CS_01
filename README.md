@@ -1,4 +1,4 @@
-# 🔐 METACIPHER
+<img width="1600" height="767" alt="WhatsApp Image 2026-06-03 at 8 00 32 PM" src="https://github.com/user-attachments/assets/5445af99-3144-4666-8126-a53135aac60e" /># 🔐 METACIPHER
 
 ### Advanced Caesar Cipher Cryptography System
 
@@ -41,17 +41,16 @@ The project transforms the traditional Caesar Cipher into a professional cryptog
 
 ## 📸 Screenshots
 
-### Main Dashboard
-
-*(Upload screenshots to your repository and link them here)*
 
 ### Interactive Cipher Wheel & Analytics
 
-*(Upload screenshots to your repository and link them here)*
+*<img width="1600" height="767" alt="WhatsApp Image 2026-06-03 at 8 00 32 PM" src="https://github.com/user-attachments/assets/8784687c-41d9-4c07-aae3-1fdc5cccd85c" />
+
 
 ### Brute Force Analysis Matrix
 
-*(Upload screenshots to your repository and link them here)*
+<img width="1600" height="572" alt="WhatsApp Image 2026-06-03 at 8 01 04 PM" src="https://github.com/user-attachments/assets/21078b85-5edb-49c5-be66-291e7b8bf634" />
+
 
 ---
 
