@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>METACIPHER - Advanced Cryptography Analysis Platform</title>
+    <meta name="description" content="METACIPHER - A premium, web-based Caesar Cipher platform with real-time encryption, brute force analysis, analytics, and interactive cipher wheel visualization.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-glows">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="app-header">
+        <div class="logo-container">
+            <span class="logo-icon">🛡️</span>
+            <div>
+                <h1 class="logo-title">METACIPHER</h1>
+                <p class="logo-subtitle">Cryptography System</p>
+            </div>
+        </div>
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle light/dark theme" title="Toggle Appearance Mode">
+            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+            </svg>
+            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+        </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h2 class="hero-title">METACIPHER</h2>
+        <p class="hero-tagline">Advanced Cryptography Analysis Platform</p>
+        <div class="hero-features">
+            <span class="feature-tag">⚡ Real-Time Encryption</span>
+            <span class="feature-tag">🔍 Brute Force Analysis</span>
+            <span class="feature-tag">🎡 Security Visualization</span>
+        </div>
+    </section>
+
+    <!-- Main Container -->
+    <main class="app-container">
+        
+        <div class="dashboard-grid">
+            <!-- COLUMN 1: Controls & Settings -->
+            <div class="grid-column flex-column">
+                <section class="card panel-card">
+                    <div class="card-header">
+                        <h3>🔧 Settings & Controls</h3>
+                    </div>
+                    
+                    <div class="controls-side">
+                        <!-- Shift Value -->
+                        <div class="control-group">
+                            <div class="control-label-row">
+                                <label for="shift-slider" class="field-label">Shift Key Value</label>
+                                <input type="number" id="shift-input" class="shift-number-input" value="3" min="-1000" max="1000" title="Custom shift input">
+                            </div>
+                            <div class="slider-container">
+                                <span class="slider-limit">0</span>
+                                <input type="range" id="shift-slider" min="0" max="25" value="3" class="slider-range">
+                                <span class="slider-limit">25</span>
+                            </div>
+                        </div>
+
+                        <!-- Toggles -->
+                        <div class="control-group toggles">
+                            <label class="switch-container">
+                                <input type="checkbox" id="toggle-numbers">
+                                <span class="switch-slider"></span>
+                                <span class="switch-label">Shift Numeric Digits (0-9)</span>
+                            </label>
+                            <label class="switch-container">
+                                <input type="checkbox" id="toggle-live" checked>
+                                <span class="switch-slider"></span>
+                                <span class="switch-label">Live Calculation</span>
+                            </label>
+                        </div>
+
+                        <!-- Main Core Actions -->
+                        <div class="action-buttons-group">
+                            <button id="btn-encrypt" class="btn btn-primary">🔒 Encrypt</button>
+                            <button id="btn-decrypt" class="btn btn-secondary">🔓 Decrypt</button>
+                            <button id="btn-clear" class="btn btn-tertiary">🧹 Clear Text</button>
+                        </div>
+
+                        <!-- Separator -->
+                        <div class="sub-separator"></div>
+
+                        <!-- Exports Section -->
+                        <div class="control-group exporters">
+                            <span class="field-label">📁 Export Operations</span>
+                            <div class="export-buttons-grid">
+                                <button id="btn-export-txt" class="btn-export" title="Export output as a text file">TXT</button>
+                                <button id="btn-export-json" class="btn-export" title="Export analysis as JSON">JSON</button>
+                                <button id="btn-download-raw" class="btn-export" title="Download output text directly">Download</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Keyboard Shortcuts Helper -->
+                <section class="card shortcuts-card">
+                    <div class="card-header">
+                        <h3>⌨️ Shortcuts</h3>
+                    </div>
+                    <div class="shortcuts-list">
+                        <div class="shortcut-item"><kbd>Ctrl</kbd> + <kbd>E</kbd> <span>Encrypt</span></div>
+                        <div class="shortcut-item"><kbd>Ctrl</kbd> + <kbd>D</kbd> <span>Decrypt</span></div>
+                        <div class="shortcut-item"><kbd>Ctrl</kbd> + <kbd>L</kbd> <span>Clear Input</span></div>
+                        <div class="shortcut-item"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> <span>Copy Result</span></div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- COLUMN 2: Inputs, Outputs & Analytics -->
+            <div class="grid-column flex-column">
+                <section class="card workspaces-card">
+                    <div class="card-header">
+                        <h3>📝 Workspaces</h3>
+                        <div class="badge">Active Session</div>
+                    </div>
+
+                    <div class="textboxes-side">
+                        <!-- Input Pane -->
+                        <div class="pane">
+                            <div class="pane-header">
+                                <label for="text-input" class="pane-title">Input Message</label>
+                                <span class="char-count" id="input-char-count">0 chars</span>
+                            </div>
+                            <textarea id="text-input" placeholder="Type your plaintext or ciphertext here..."></textarea>
+                        </div>
+
+                        <!-- Output Pane -->
+                        <div class="pane">
+                            <div class="pane-header">
+                                <span class="pane-title">Output Result</span>
+                                <button id="btn-copy" class="btn-icon" title="Copy to Clipboard">
+                                    <span class="btn-icon-text">📋 Copy</span>
+                                </button>
+                            </div>
+                            <textarea id="text-output" readonly placeholder="Result output will appear here..."></textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Real-Time Analytics -->
+                <section class="card analytics-card">
+                    <div class="card-header">
+                        <h3>📊 Real-Time Analytics</h3>
+                    </div>
+                    <div class="analytics-grid">
+                        <div class="analytics-item">
+                            <span class="analytics-label">Characters</span>
+                            <span class="analytics-val" id="analytics-chars">0</span>
+                        </div>
+                        <div class="analytics-item">
+                            <span class="analytics-label">Words</span>
+                            <span class="analytics-val" id="analytics-words">0</span>
+                        </div>
+                        <div class="analytics-item">
+                            <span class="analytics-label">Shift Value</span>
+                            <span class="analytics-val" id="analytics-shift">3</span>
+                        </div>
+                        <div class="analytics-item">
+                            <span class="analytics-label">Process Speed</span>
+                            <span class="analytics-val" id="analytics-time">0ms</span>
+                        </div>
+                    </div>
+                    <div class="security-score-container">
+                        <div class="score-header">
+                            <span>Key Strength Indicator (Entropy)</span>
+                            <span id="analytics-score-txt" class="score-text">0/100</span>
+                        </div>
+                        <div class="score-bar-bg">
+                            <div id="analytics-score-bar" class="score-bar-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- COLUMN 3: Visualizer, History & Dashboard Status -->
+            <div class="grid-column flex-column">
+                <!-- Cipher Wheel Card -->
+                <section class="card wheel-card">
+                    <div class="card-header">
+                        <h3>🎡 Interactive Cipher Wheel</h3>
+                    </div>
+                    <div class="wheel-box">
+                        <svg id="cipher-wheel-svg" viewBox="0 0 300 300" width="100%" height="100%">
+                            <!-- Dynamic SVG Concentric Rings Generated by app.js -->
+                        </svg>
+                    </div>
+                </section>
+
+                <!-- Security Dashboard System Info -->
+                <section class="card security-dashboard-card">
+                    <div class="card-header">
+                        <h3>🛡️ Security Status</h3>
+                    </div>
+                    <div class="sec-dashboard-grid">
+                        <div class="sec-status-row">
+                            <span>System Status</span>
+                            <span class="sec-status-val sec-active"><span class="pulse-dot"></span>ACTIVE</span>
+                        </div>
+                        <div class="sec-status-row">
+                            <span>Encryption Engine</span>
+                            <span class="sec-status-val text-green">ONLINE</span>
+                        </div>
+                        <div class="sec-status-row">
+                            <span>Threat Status</span>
+                            <span class="sec-status-val text-blue">LOW</span>
+                        </div>
+                        <div class="sec-status-row">
+                            <span>Brute Force Shield</span>
+                            <span class="sec-status-val text-green">ENABLED</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Encryption History Panel -->
+                <section class="card history-card">
+                    <div class="card-header">
+                        <h3>📜 History Logs (Last 10)</h3>
+                        <button id="btn-clear-history" class="btn-clear-all" title="Clear all local logs">Clear All</button>
+                    </div>
+                    <div class="history-list" id="history-container">
+                        <p class="history-placeholder">No encrypt/decrypt history logs stored.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Brute-Force Dashboard (Full Width Bottom) -->
+        <section class="card brute-card">
+            <div class="card-header">
+                <div>
+                    <h2>💥 Brute-Force Analysis Matrix</h2>
+                    <p class="section-desc">Try all 25 shifts instantly to inspect decrypt variants.</p>
+                </div>
+                <button id="btn-brute" class="btn btn-danger">Run Brute-Force</button>
+            </div>
+            
+            <div class="brute-results-container" id="brute-container">
+                <div class="brute-placeholder">
+                    <p>Enter text in the workspace and click <strong>Run Brute-Force</strong> to view decrypted shift configurations.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Professional Footer -->
+    <footer class="app-footer">
+        <p>Created by <strong>Aathekesavan R</strong> | Cyber Security Internship | <strong>Prodigy InfoTech</strong></p>
+        <div class="footer-links">
+            <a href="https://github.com/aathekesavan" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <span class="divider">|</span>
+            <a href="https://linkedin.com/in/aathekesavan-r-a37a84316" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript File -->
+    <script src="app.js"></script>
+</body>
+</html>

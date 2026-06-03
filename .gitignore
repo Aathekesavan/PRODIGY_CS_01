@@ -1,0 +1,9 @@
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local Settings / OS Files
+.DS_Store
+Thumbs.db
